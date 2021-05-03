@@ -16,9 +16,21 @@
       <input type="text" matInput placeholder="Enter Company Name" [(ngModel)]="company" (ngModelChange)="valueChange(name)"
         class="px-3 py-3 bg-black placeholder-blueGray-300 text-blueGray-600 relative text-white text-sm border-0 shadow outline-none w-full" />
     </div>
+    <div class="px-8  w-1/4">
+      <input type="file" (change)="onImageUpload($event)"
+        class="px-3 py-3 bg-black placeholder-blueGray-300 text-blueGray-600 relative text-white text-sm border-0 shadow outline-none w-full" />
+    </div>
   </div>
 
   <div class="mt-8 flex justify-center">
     <canvas #canvas width="444" height="271" id='canvas'></canvas>
+  </div>
+
+  <!-- <div class="mt-8 flex justify-center" *ngIf="image">
+    <img [src]="image" />
+  </div> -->
+
+  <div class="mt-8 flex justify-center">
+    <canvas  width="444" height="271" id='image-canvas'></canvas>
   </div>
 </div>
