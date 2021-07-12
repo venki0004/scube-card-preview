@@ -18,11 +18,13 @@ export class AppComponent {
 switch (type) {
     case 'table':
       table = values[2];
+      break;
     case 'schema': // eslint-disable-line
       schema = values[1]; // eslint-disable-line
-    case 'database': // eslint-disable-line
+      break;
     default:
       db = values[0];
+     break;
   }
     var canvas: any = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
