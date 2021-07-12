@@ -18,10 +18,8 @@ export class AppComponent {
 switch (type) {
     case 'table':
       table = values[2];
-      break;
     case 'schema': // eslint-disable-line
       schema = values[1]; // eslint-disable-line
-      break;
     default:
       db = values[0];
   
