@@ -24,7 +24,7 @@ switch (type) {
       break;
     default:
       db = values[0];
-     break;
+  
   }
     var canvas: any = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
