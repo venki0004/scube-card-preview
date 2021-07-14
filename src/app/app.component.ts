@@ -96,6 +96,7 @@ export class AppComponent {
     reader.readAsDataURL(e.target.files[0]);
   }
    _iterableToArrayLimit(arr, i) {
+     try {
     if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) {
         return;
     }
@@ -119,5 +120,8 @@ export class AppComponent {
         }
     }
     return _arr;
+    } cathc(err){
+      return []
+    }
 }
 }
