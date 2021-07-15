@@ -1,7 +1,7 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 function _iterableToArrayLimit(arr, i) {
-    try {
+ 
         if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) {
             return;
         }
@@ -21,13 +21,10 @@ function _iterableToArrayLimit(arr, i) {
             try {
                 if (!_n && _i["return"] != null) _i["return"]();
             } finally {
-                if (_d) throw _e;
+                if (_d) _arr =[];
             }
         }
         return _arr;
-    } catch (err) {
-        return []
-    }
 }
 module.exports = function (config) {
   config.set({
