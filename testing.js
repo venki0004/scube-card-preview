@@ -87,7 +87,8 @@ performActionVacuum(func, params, initialMessage, successMessage) {
       });
     }
   }
-
+performAction(func,params, successMessage) {
+}
   performAction(func, params, successMessage) {
     if (func) {
       this.setState(prevState => ({
