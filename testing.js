@@ -27,3 +27,102 @@ errorHandeler(error,callback){
       callback(error.response.data.exception);
     }
 }
+
+
+
+performActionVacuum(func, params, initialMessage, successMessage) {
+    if (func) {
+      this.setState(prevState => ({
+        loader: {
+          ...prevState,
+          isVisible: false
+        },
+        notification: {
+          ...prevState.notification,
+          isVisible: true,
+          kind: 'success',
+          subtitle: initialMessage
+        }
+      }));
+
+      func(...params, error => {
+        if (error) {
+          if (error === network_error_message) {
+            this.setState(prevState => ({
+              loader: {
+                ...prevState,
+                isVisible: false
+              },
+              notification: {
+                ...prevState.notification,
+                isVisible: true,
+                kind: 'info',
+                subtitle: network_error_message
+              }
+            }));
+          } else {
+            this.setState(prevState => ({
+              loader: {
+                ...prevState,
+                isVisible: false
+              },
+              notification: {
+                ...prevState.notification,
+                isVisible: true,
+                kind: 'error',
+                subtitle: error
+              }
+            }));
+          }
+        } else {
+          this.setState(prevState => ({
+            notification: {
+              ...prevState.notification,
+              isVisible: true,
+              kind: 'success',
+              subtitle: successMessage
+            }
+          }));
+        }
+      });
+    }
+  }
+
+  performAction(func, params, successMessage) {
+    if (func) {
+      this.setState(prevState => ({
+        loader: {
+          ...prevState,
+          isVisible: false
+        },
+        modal: () => null
+      }));
+
+      func(...params, error => {
+        if (error) {
+          this.setState(prevState => ({
+            loader: {
+              ...prevState,
+              isVisible: false
+            },
+            notification: {
+              ...prevState.notification,
+              isVisible: true,
+              kind: 'error',
+              subtitle: error
+            }
+          }));
+        } else {
+          this.setState(prevState => ({
+            notification: {
+              ...prevState.notification,
+              isVisible: true,
+              kind: 'success',
+              subtitle: successMessage
+            }
+          }));
+          this.getDatabases(true);
+        }
+      });
+    }
+  }
