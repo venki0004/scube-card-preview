@@ -33,4 +33,6 @@
   <div class="mt-8 flex justify-center">
     <canvas  width="444" height="271" id='image-canvas'></canvas>
   </div>
+  
+   <input aria-label={this.props.primaryButtonText === 'Copy' ? this.props.t('enterNameThe', { name: this.props.objectType }) : this.props.t('enterNewNameThe', { name: this.props.objectType })} />
 </div>
